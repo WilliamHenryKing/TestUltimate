@@ -7,8 +7,7 @@ import java.awt.event.*;
 import java.util.Arrays;
 
 
-public class App implements ActionListener
-{
+public class App implements ActionListener {
 
     JFrame jf = new JFrame("test");
     JButton btnred = new JButton("red");
@@ -27,11 +26,9 @@ public class App implements ActionListener
     JTextField txtinput = new JTextField();
 
 
-
-    String country[]={"red","blue","green","yellow","orange"};
-    Color colors[]={Color.red,Color.blue,Color.green,Color.yellow,Color.orange}; //colour mapping for country array
+    String country[] = {"red", "blue", "green", "yellow", "orange"};
+    Color colors[] = {Color.red, Color.blue, Color.green, Color.yellow, Color.orange}; //colour mapping for country array
     JComboBox cbox = new JComboBox(country);
-
 
 
     JLabel lbl1 = new JLabel("RadioButton");
@@ -39,34 +36,31 @@ public class App implements ActionListener
     JLabel lbl3 = new JLabel("ComboBox");
 
 
-    public App()
-    {
+    public App() {
         setframeState();
         addComponents();
     }
 
 
-    public void setframeState()
-    {
-        jf.setSize(600,500);
+    public void setframeState() {
+        jf.setSize(600, 500);
         jf.setResizable(false);
         jf.setVisible(true);
 
-        Dimension dim = Toolkit.getDefaultToolkit ().getScreenSize ();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
-        int w = jf.getSize ().width;
-        int h = jf.getSize ().height;
+        int w = jf.getSize().width;
+        int h = jf.getSize().height;
         int x = (dim.width - w) / 2;
         int y = (dim.height - h) / 2;
 
-        jf.setLocation (x, y);
+        jf.setLocation(x, y);
 
 
     }
 
 
-    public void addComponents()
-    {
+    public void addComponents() {
         jf.setLayout(null);
 
         btnred.setBounds(90, 400, 90, 50);
@@ -118,64 +112,54 @@ public class App implements ActionListener
 
     }
 
-    public void actionPerformed(ActionEvent e)
-    {
+    public void actionPerformed(ActionEvent e) {
 
-        if(txtinput == e.getSource())
-        {
+        if (txtinput == e.getSource()) {
             String text = txtinput.getText();
             txtarea.setText(text);
         }
 
-        if(rbtnyellow == e.getSource())
-        {
+        if (rbtnyellow == e.getSource()) {
             txtarea.setBackground(Color.yellow);
-            JOptionPane.showMessageDialog(null,"you pressed " + e.getActionCommand());
+            JOptionPane.showMessageDialog(null, "you pressed " + e.getActionCommand());
         }
 
-        if(rbtngreen == e.getSource())
-        {
+        if (rbtngreen == e.getSource()) {
             txtarea.setBackground(Color.green);
-            JOptionPane.showMessageDialog(null,"you pressed " + e.getActionCommand());
+            JOptionPane.showMessageDialog(null, "you pressed " + e.getActionCommand());
         }
 
-        if(btnred == e.getSource())
-        {
+        if (btnred == e.getSource()) {
             txtarea.setBackground(Color.red);
-            JOptionPane.showMessageDialog(null,"you pressed " + e.getActionCommand());
+            JOptionPane.showMessageDialog(null, "you pressed " + e.getActionCommand());
         }
 
-        if(btnblue == e.getSource())
-        {
+        if (btnblue == e.getSource()) {
             txtarea.setBackground(Color.blue);
-            JOptionPane.showMessageDialog(null,"you pressed " + e.getActionCommand());
+            JOptionPane.showMessageDialog(null, "you pressed " + e.getActionCommand());
         }
 
-        if(btnexit == e.getSource())
-        {
+        if (btnexit == e.getSource()) {
+            System.out.println("Exiting application....");
             System.exit(0);
         }
 
-        if(cbox == e.getSource())
-        {
+        if (cbox == e.getSource()) {
             txtarea.setBackground(colors[Arrays.asList(country).indexOf(cbox.getSelectedItem())]);
-            JOptionPane.showMessageDialog(null,"you pressed " + e.getActionCommand());
+            JOptionPane.showMessageDialog(null, "you pressed " + e.getActionCommand());
         }
 
-        if(btnread == e.getSource())
-        {
-            JOptionPane.showMessageDialog(null,"you pressed " + e.getActionCommand());
+        if (btnread == e.getSource()) {
+            JOptionPane.showMessageDialog(null, "you pressed " + e.getActionCommand());
             txtarea.setBackground(Color.blue);
         }
 
     }
 
 
-    public static void main (String[]args)
-    {
+    public static void main(String[] args) {
         new App();
     }
-
 
 
 }
